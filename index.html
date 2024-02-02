@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./dist/output.css">
+    <title>PokeGo!!</title>
+</head>
+
+<body class="bg-bgHome bg-fill">
+
+    <!-- TITLE HEADER -->
+    <div class="hidden lg:block md:block">
+        <div class="flex justify-center mt-10">
+            <span class="font-mainFont bg-mainColor text-black text-8xl font-bold me-2 p-3 rounded-2xl">POKEGO!!</span>
+        </div>
+    </div>
+
+    <div class="block lg:hidden md:hidden">
+        <div class="flex justify-center mt-10">
+            <span class="font-mainFont bg-mainColor text-black text-7xl font-bold me-2 p-3 rounded-2xl">POKEGO!!</span>
+        </div>
+    </div>
+
+    <!-- RANDOM, FAVORITES, SEARCH INPUT & SEARCH BTN -->
+    <div class="grid lg:grid-cols-6 mt-10 mx-5 md:grid-cols-4 sm:grid-cols-2">
+        <button id="randomBtn" type="button"
+            class="text-white font-mainFont bg-randomBtn hover:bg-randomBtnHover text-3xl font-bold rounded-2xl px-5 py-2.5 m-1">random</button>
+
+        <button id="getFavsBtn" type="button"
+            class="text-white font-mainFont bg-favBtn hover:bg-favBtnHover text-3xl font-bold rounded-2xl px-5 py-2.5 m-1"
+            data-drawer-target="drawer-example" data-drawer-show="drawer-example"
+            aria-controls="drawer-example">favorites</button>
+
+        <div id="drawer-example"
+            class="fixed top-0 left-0 z-40 h-screen overflow-y-auto transition-transform -translate-x-full bg-favMenu w-80  font-mainFont p-0"
+            tabindex="-1" aria-labelledby="drawer-label">
+            <h5 id="drawer-label" class="inline-flex items-center mb-4 p-3 font-semibold text-white text-6xl underline">
+                favorites</h5>
+            <button type="button" data-drawer-hide="drawer-example" aria-controls="drawer-example"
+                class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 absolute top-2.5 end-2.5 flex items-center justify-center dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">Close menu</span>
+            </button>
+
+            <div id="getFavsDiv" class="bg-mainColor text-black text-lg font-bold">
+
+            </div>
+        </div>
+
+        <div class="hidden lg:block"></div>
+        <div class="hidden lg:block"></div>
+
+        <input id="searchInput" type="text" class="font-mainFont text-xl rounded-2xl border-0 h-14 m-1"
+            placeholder="search pokemon">
+
+        <button id="searchBtn" type="button"
+            class="text-white font-mainFont bg-searchBtn hover:bg-searchBtnHover text-3xl font-bold rounded-2xl px-5 py-2.5 m-1">search</button>
+
+    </div>
+
+    <!-- POKEMON NAME, INDEX NUMBER, FAV BUTTON, IMAGE, AND SHINY BUTTON -->
+    <div class="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 mx-5 mt-5">
+        <div class="bg-mainColor rounded-2xl font-bold p-8 mb-5 m-2">
+            <!-- POKEMON INFO -->
+            <div class="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-rows-1 sm:grid-cols-3">
+                <div>
+                    <span class="font-mainFont font-bold text-2xl">#</span>
+                    <span id="pokeIndex" class="font-mainFont font-bold text-2xl">index</span>
+                </div>
+                <p id="pokeName" class="font-mainFont text-4xl font-bold uppercase">pokemon name</p>
+                <div class="flex justify-end">
+                    <button id="favBtn">
+                        <img id="favImg" src="./assets/Heart.png" alt="">
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex justify-center">
+                <img id="pokeImg" src="./assets/pichu.png" alt="">
+            </div>
+
+            <div class="flex justify-end">
+                <div>
+                    <button id="originalBtn" type="button"
+                        class="text-black font-mainFont bg-origBtn hover:bg-origBtnHover focus:bg-origBtnHover text-2xl font-bold rounded-2xl px-5 py-1 ">original</button>
+
+                    <button id="shinyBtn" type="button"
+                        class="text-black font-mainFont bg-shinyBtn hover:bg-shinyBtnHover focus:bg-shinyBtnHover text-2xl font-bold rounded-2xl px-5 py-1 ">shiny</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="bg-mainColor rounded-2xl p-8 mb-5 m-2">
+
+            <div class="font-mainFont text-4xl">
+                <span class="font-bold">elements:</span>
+                <span id="elementsInfo">elements info</span>
+            </div>
+
+            <br>
+
+            <div class="font-mainFont text-4xl">
+                <span class="font-bold">find me in pokemon:</span>
+                <span id="locationInfo">game location info</span>
+            </div>
+
+            <br>
+
+            <div class="font-mainFont text-4xl">
+                <span class="font-bold">abilities:</span>
+                <span id="abilitiesInfo">abilities info</span>
+            </div>
+
+            <br>
+
+            <div class="font-mainFont text-4xl overflow-y-scroll h-96">
+                <span class="font-bold">moves:</span>
+                <span id="movesInfo" class="">moves info</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- EVOLUTIONARY PATH -->
+    <div class="flex justify-center mt-5 mb-5">
+
+        <div class="bg-mainColor p-8 font-mainFont font-bold text-3xl rounded-2xl w-auto ml-5 mr-5">
+            <span>
+                evolutionary path:
+            </span>
+
+            <div>
+                <span id="evolutionPath">sprites</span>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="module" src="./scripts/app.js"></script>
+    <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+</body>
+
+</html>
