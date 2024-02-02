@@ -1828,12 +1828,12 @@ input:checked + .toggle-bg {
   color: rgb(17 24 39 / var(--tw-text-opacity));
 }
 
-.focus\:bg-shinyBtnHover:focus {
-  background-color: rgba(252, 176, 18, 1);
-}
-
 .focus\:bg-origBtnHover:focus {
   background-color: rgba(73, 165, 203, 1);
+}
+
+.focus\:bg-shinyBtnHover:focus {
+  background-color: rgba(252, 176, 18, 1);
 }
 
 .focus\:outline-none:focus {

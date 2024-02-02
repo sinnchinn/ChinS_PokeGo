@@ -76,7 +76,14 @@ searchBtn.addEventListener('click', async () => {
         const moves = pokemon.moves.map(element => element.move.name).join(", ");
     
         console.log(findLoc);
-        const location = findLoc[0].location_area.name;
+
+        if(findLoc.length == 0){
+            locationInfo.textContent = "unknown";
+        } else {
+            const location = findLoc[0].location_area.name;
+            locationInfo.textContent = location;
+        }
+
         // console.log(location);
     
         evolving.push(evolve.chain.species.name);
@@ -95,16 +102,17 @@ searchBtn.addEventListener('click', async () => {
         pokeIndex.textContent = pokemon.id;
         pokeName.textContent = pokemon.name;
         pokeImg.src = pokemon.sprites.other["official-artwork"].front_default;
+        // pokeImg.src = pokemon.sprites.front_default;
         elementsInfo.textContent = elements;
         abilitiesInfo.textContent = abilities;
         movesInfo.textContent = moves;
         evolutionPath.textContent = evolving.join(", ");
 
-        if(findLoc[0].length == 0){
-            locationInfo.textContent = "unknown";
-        } else {
-            locationInfo.textContent = location;
-        }
+        // if(findLoc[0].length == 0){
+        //     locationInfo.textContent = "unknown";
+        // } else {
+        //     locationInfo.textContent = location;
+        // }
 
         shinyBtn.addEventListener('click', async () => {
             pokeImg.src = pokemon.sprites.other["official-artwork"].front_shiny;
