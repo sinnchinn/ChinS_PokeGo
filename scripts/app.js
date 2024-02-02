@@ -18,7 +18,6 @@ let movesInfo = document.getElementById("movesInfo");
 let evolutionPath = document.getElementById("evolutionPath");
 let shinyBtn = document.getElementById("shinyBtn");
 let originalBtn = document.getElementById("originalBtn");
-let backToPokemon = document.getElementById("backToPokemon")
 
 let evolving = [];
 
@@ -78,7 +77,7 @@ searchBtn.addEventListener('click', async () => {
     
         console.log(findLoc);
         const location = findLoc[0].location_area.name;
-        console.log(location);
+        // console.log(location);
     
         evolving.push(evolve.chain.species.name);
     
@@ -101,9 +100,8 @@ searchBtn.addEventListener('click', async () => {
         movesInfo.textContent = moves;
         evolutionPath.textContent = evolving.join(", ");
 
-        if(findLoc.length == 0 && pokemon.id < 649){
+        if(findLoc[0].length == 0){
             locationInfo.textContent = "unknown";
-            alert('please enter a pokemon in generation 1-5 only!')
         } else {
             locationInfo.textContent = location;
         }
