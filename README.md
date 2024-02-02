@@ -4,6 +4,6 @@
 
 // pokeindex
 
-// peer reviewer: 
+// peer reviewer: Halley Pham
 
-// per reviewer comments:
+// per reviewer comments: The site looks great, I love the design! The favorites and the heart button works. Random button displays a random pokemon. There is also responsiveness.  There is an issue with some pokemon not displaying when searched. Overall good job!! 
